@@ -1,0 +1,31 @@
+Step-by-Step Spark Cluster Setup on Ubuntu
+
+---Update System and Install Java
+sudo apt update
+sudo apt install openjdk-11-jdk -y
+java -version
+
+---Download and Extract Apache Spark
+
+cd /opt
+sudo wget https://dlcdn.apache.org/spark/spark-3.5.5/spark-3.5.5-bin-hadoop3-scala2.13.tgz
+sudo tar -xvzf spark-3.5.5-bin-hadoop3-scala2.13.tgz
+sudo mv spark-3.5.5-bin-hadoop3-scala2.13 spark
+
+----Set Up Environment Variables
+
+echo 'export SPARK_HOME=/opt/spark' >> ~/.bashrc
+echo 'export PATH=$SPARK_HOME/bin:$SPARK_HOME/sbin:$PATH' >> ~/.bashrc
+echo 'export PYSPARK_PYTHON=/usr/bin/python3' >> ~/.bashrc
+source ~/.bashrc
+
+------Verify Spark Installation
+
+ls -l /opt/spark/sbin/start-master.sh
+
+---Starty master shell 
+start-master.sh
+
+http://public-ip:8080
+
+
